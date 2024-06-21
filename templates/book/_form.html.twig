@@ -1,0 +1,23 @@
+{{ form_start(form, {'attr': {'class': 'max-w-md mx-auto'}}) }}
+
+    {# Render the 'name' field #}
+    <div class="mb-4">
+        {{ form_label(form.title, null, {'class': 'block text-gray-700 text-sm font-bold mb-2'}) }}
+        {{ form_widget(form.title, {'attr': {'class': 'form-input w-full'}}) }}
+        {{ form_errors(form.title) }}
+    </div>
+
+    {# Render the 'price' field #}
+    <div class="mb-4">
+        {{ form_label(form.price, null, {'class': 'block text-gray-700 text-sm font-bold mb-2'}) }}
+        {{ form_widget(form.price, {'attr': {'class': 'form-input w-full'}}) }}
+        {{ form_errors(form.price) }}
+    </div>
+
+    {# Render the submit button #}
+    <div class="text-center">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">{{ button_label|default('Save') }}</button>
+    </div>
+
+{# End the form rendering #}
+{{ form_end(form) }}

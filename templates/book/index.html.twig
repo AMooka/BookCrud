@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Book Store{% endblock %}
+
+{% block body %}
+
+<div class="px-5 items-center w-full">
+    <div class="flex justify-between mt-3 border-b border-gray-200 py-2">
+        <h1 class="font-bold">Book Store</h1>
+        
+    </div>
+
+    <div class="mt-4 mx-auto w-full md:w-5/6">
+    <table class="w-full md:w-5/6">
+        <thead>
+            <tr class="bg-slate-200">
+                <th class="align-left">Title</th>
+                <th>Price</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+
+        {% for book in books %}
+        <tbody>
+            <tr>
+                <td class="border-b">{{ book.title }}</td>
+                <td class="border-b">{{ book.price }}</td>
+                <td class="border-b">
+                    <a href="{{ path('app_book_show', {'id': book.id}) }}">show</a>
+                    <a href="{{ path('app_book_edit', {'id': book.id}) }}">edit</a>
+                </td>
+            </tr>
+            </tbody>
+        {% else %}
+            <p>No records found</p>
+        {% endfor %}
+        
+    </table>
+
+    </div>
+
+{% endblock %}
